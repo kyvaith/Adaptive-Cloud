@@ -49,6 +49,7 @@ node 'hosting1.tomekw.pl' {
     },
     'mysqld' => {
       'local-infile'                  => '0',
+      'pid-file'                      => '/tmp/mariadb.pid',
       'ignore_db_dirs'                => 'lost+found',
       'datadir'                       => '/var/lib/mysql',
       'socket'                        => '/var/lib/mysql/mysql.sock',
