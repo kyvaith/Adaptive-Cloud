@@ -1,0 +1,17 @@
+---
+:backends:
+  - yaml
+  - eyaml
+
+:yaml:
+  :datadir: hieradata
+
+:hierarchy:
+  - machines/%{::domain}/%{::hostname}
+  - users/%{::deploy_environment}
+  - environment/%{::deploy_environment}/profile/%{::service_profile}
+  - environment/%{::deploy_environment}/roles/%{::system_role}
+  - profiles/%{::service_profile}
+  - roles/%{::system_role}
+  - osfamily/%{::osfamily}
+  - common
