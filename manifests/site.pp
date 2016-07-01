@@ -16,7 +16,7 @@ class { '::ntp':
 }
 
 exec { 'setup_locale':
-    command => 'localectl set-locale LANG=en_GB.utf8',
+    command => 'localectl set-locale LANG=en_US.utf8',
     path    => ['/usr/local/sbin', '/usr/local/bin','/sbin','/bin','/usr/sbin','/usr/bin' ]
 }
 
