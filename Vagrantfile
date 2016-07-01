@@ -5,9 +5,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.box_check_update = false
-    config.vm.box = "centos71-oisis"
-#    Publiczny obraz do przetestowania:
-#    config.vm.box = "vStone/centos-7.x-puppet.3.x"
+    config.vm.box = "vStone/centos-7.x-puppet.3.x"
     config.vm.provider :virtualbox do |vb|
         vb.gui = false
     end
