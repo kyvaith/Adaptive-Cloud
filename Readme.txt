@@ -23,3 +23,11 @@ vagrant destroy <NAZWA_MASZYNY>
 Modyfikacja zasobow maszyny wirtualnej:
 - Plik Vagrantfile
 - Edytujemy linię: vb.customize [...........]
+
+Uruchomienie puppeta z poziomu OS:
+1. Wchodzimy do katalogu z plikami puppeta:
+cd /vagrant
+2. Uruchamiamy komendę - puppet w trybie testu:
+puppet apply --hiera_config=./hiera.yaml --modulepath=./modules ./manifests/site.pp -v --test
+3. Uruchamiamy komendę - puppet w trybie normalnym + verbose:
+puppet apply --hiera_config=./hiera.yaml --modulepath=./modules ./manifests/site.pp -v
