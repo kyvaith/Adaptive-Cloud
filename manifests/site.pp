@@ -2,7 +2,7 @@ stage { 'first': before => Stage['main'] }
 class { 'puppetlabs_yum': stage => first }
 class { 'epel': stage => first }
 
-$enhancers = [ "mc", "zsh", "screen", "bind-utils", "htop", "telnet", "wget" ]
+$enhancers = [ "mc", "zsh", "screen", "bind-utils", "htop", "telnet", "wget", "epel-release" ]
 package { $enhancers: ensure => "installed" }
 package { "chef": ensure => "purged", }
 
