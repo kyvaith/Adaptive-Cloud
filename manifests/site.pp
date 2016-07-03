@@ -196,6 +196,9 @@ node 'rpm.tomekw.pl' {
   yum::group { 'Development Tools':
     ensure => present,
   }
+  exec { 'install_remi_yum_repo':
+    command => '/usr/bin/rpm -ihv http://rpms.famillecollet.com/enterprise/remi-release-7.rpm',
+  }
 }
 
 node 'docker.tomekw.pl' {
