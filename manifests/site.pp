@@ -193,8 +193,6 @@ node 'hosting1.tomekw.pl' {
 }
 
 node 'rpm.tomekw.pl' {
-  $enhancers = [ "mc", "zsh", "screen", "bind-utils", "htop", "telnet", "wget" ]
-  package { $enhancers: ensure => "installed" }
 }
 
 node 'docker.tomekw.pl' {
