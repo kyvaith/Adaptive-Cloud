@@ -193,6 +193,9 @@ node 'hosting1.tomekw.pl' {
 }
 
 node 'rpm.tomekw.pl' {
+  yum::group { 'Development Tools':
+    ensure => present,
+  }
 }
 
 node 'docker.tomekw.pl' {
