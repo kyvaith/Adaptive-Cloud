@@ -23,6 +23,8 @@ node 'hosting1.tomekw.pl' {
   kmod::load { 'nf_conntrack_ipv6': }
   kmod::load { 'nf_conntrack': }
   include sysctl::base
+  $enhancers = [ "libevent", ]
+  package { $enhancers: ensure => "installed" }
   yumrepo { 'percona':
     descr    => 'CentOS $releasever - Percona',
     baseurl  => 'http://repo.percona.com/centos/$releasever/os/$basearch/',
@@ -191,7 +193,7 @@ node 'rpm.tomekw.pl' {
   yum::group { 'Development Tools':
     ensure => present,
   }
-  $enhancers = [ "yum-utils", ]
+  $enhancers = [ "yum-utils", "libevent-devel", "perl-Test-Simple", "cyrus-sasl-devel", ]
   package { $enhancers: ensure => "installed" }
   exec { 'install_remi_yum_repo':
     command => '/usr/bin/rpm -ihv --replacepkgs http://rpms.famillecollet.com/enterprise/remi-release-7.rpm',
