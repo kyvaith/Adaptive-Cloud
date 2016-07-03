@@ -15,11 +15,6 @@ class { '::ntp':
   servers => [ '0.pl.pool.ntp.org', '1.pl.pool.ntp.org' ],
 }
 
-exec { 'setup_locale':
-    command => 'localectl set-locale LANG=en_US.utf8',
-    path    => ['/usr/local/sbin', '/usr/local/bin','/sbin','/bin','/usr/sbin','/usr/bin' ]
-}
-
 node 'hosting1.tomekw.pl' {
   kmod::load { 'nf_conntrack_ipv4': }
   kmod::load { 'nf_defrag_ipv4': }
