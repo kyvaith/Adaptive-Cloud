@@ -198,4 +198,42 @@ node 'buildsrv.tomekw.pl' {
   exec { 'install_remi_yum_repo':
     command => '/usr/bin/rpm -ihv --replacepkgs http://rpms.famillecollet.com/enterprise/remi-release-7.rpm',
   }
+  include jenkins
+  include jenkins::master
+  jenkins::user { 'root':
+    email    => 'root@tomekw.pl',
+    password => 'toor',
+  }
+  jenkins::plugin { 'ant': } ->
+  jenkins::plugin { 'antisamy-markup-formatter': } ->
+  jenkins::plugin { 'copyartifact': } ->
+  jenkins::plugin { 'credentials': } ->
+  jenkins::plugin { 'cvs': } ->
+  jenkins::plugin { 'external-monitor-job': } ->
+  jenkins::plugin { 'envinject': } ->
+  jenkins::plugin { 'git': } ->
+  jenkins::plugin { 'git-client': } ->
+  jenkins::plugin { 'icon-shim': } ->
+  jenkins::plugin { 'javadoc': } ->
+  jenkins::plugin { 'jquery': } ->
+  jenkins::plugin { 'junit': } ->
+  jenkins::plugin { 'ldap': } ->
+  jenkins::plugin { 'mailer': } ->
+  jenkins::plugin { 'mapdb-api': } ->
+  jenkins::plugin { 'matrix-auth': } ->
+  jenkins::plugin { 'matrix-project': } ->
+  jenkins::plugin { 'maven-plugin': } ->
+  jenkins::plugin { 'modernstatus': } ->
+  jenkins::plugin { 'nodelabelparameter': } ->
+  jenkins::plugin { 'pam-auth': } ->
+  jenkins::plugin { 'pegdown-formatter': } ->
+  jenkins::plugin { 'scm-api': } ->
+  jenkins::plugin { 'script-security': } ->
+  jenkins::plugin { 'ssh-credentials': } ->
+  jenkins::plugin { 'ssh-slaves': } ->
+  jenkins::plugin { 'subversion': } ->
+  jenkins::plugin { 'token-macro': } ->
+  jenkins::plugin { 'translation': } ->
+  jenkins::plugin { 'windows-slaves': } ->
+  jenkins::plugin { 'ws-cleanup': }
 }
