@@ -187,6 +187,10 @@ node 'hosting1.tomekw.pl' {
     remove_default_accounts => true,
     override_options        => $override_options
   }
+  class { 'docker':
+    version       => 'latest',
+    docker_users  => [ 'vagrant', ],
+  }
 }
 
 node 'buildsrv.tomekw.pl' {
