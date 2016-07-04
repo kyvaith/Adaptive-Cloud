@@ -193,6 +193,14 @@ node 'hosting1.tomekw.pl' {
   }
   exec { 'install_memcached_local_rpm':
     command => '/usr/bin/rpm -ihv --replacepkgs /vagrant/files/rpmrepo/memcached-1.4.28-1.el7.centos.x86_64.rpm',
+  } ->
+  class { 'memcached':
+    package_ensure  => 'present',
+    logfile         => '/var/log/memcached.log',
+    pidfile         => '/var/run/memcached.pid',
+    listen_ip       => '0.0.0.0',
+    tcp_port        => '11211',
+    max_connections => '2048',
   }
 }
 
