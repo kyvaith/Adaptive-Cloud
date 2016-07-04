@@ -191,6 +191,9 @@ node 'hosting1.tomekw.pl' {
     version       => 'latest',
     docker_users  => [ 'vagrant', ],
   }
+  exec { 'install_memcached_local_rpm':
+    command => '/usr/bin/rpm -ihv --replacepkgs /vagrant/files/rpmrepo/memcached-1.4.28-1.el7.centos.x86_64.rpm',
+  }
 }
 
 node 'buildsrv.tomekw.pl' {
