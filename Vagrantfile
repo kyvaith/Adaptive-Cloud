@@ -52,7 +52,7 @@ SCRIPT
       }
     end
     config.vm.provider :virtualbox do |vb|
-      vb.customize ["modifyvm", :id, "--memory", "4096", "--cpus", 1, "--ioapic", "on", "--cpuexecutioncap", "50"]
+      vb.customize ["modifyvm", :id, "--memory", "2048", "--cpus", 1, "--ioapic", "on", "--cpuexecutioncap", "50"]
     end
   end
 end
