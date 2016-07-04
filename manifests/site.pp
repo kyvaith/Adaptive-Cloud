@@ -189,7 +189,7 @@ node 'hosting1.tomekw.pl' {
   }
 }
 
-node 'rpm.tomekw.pl' {
+node 'buildsrv.tomekw.pl' {
   yum::group { 'Development Tools':
     ensure => present,
   }
@@ -198,7 +198,4 @@ node 'rpm.tomekw.pl' {
   exec { 'install_remi_yum_repo':
     command => '/usr/bin/rpm -ihv --replacepkgs http://rpms.famillecollet.com/enterprise/remi-release-7.rpm',
   }
-}
-
-node 'docker.tomekw.pl' {
 }
