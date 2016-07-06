@@ -250,5 +250,7 @@ node 'buildsrv.tomekw.pl' {
   jenkins::plugin { 'token-macro': } ->
   jenkins::plugin { 'translation': } ->
   jenkins::plugin { 'windows-slaves': } ->
-  jenkins::plugin { 'ws-cleanup': }
+  jenkins::plugin { 'ws-cleanup': } ->
+  jenkins::plugin { 'job-dsl': } ->
+  jenkins::plugin { 'structs': }
 }
