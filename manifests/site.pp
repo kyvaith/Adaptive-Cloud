@@ -180,11 +180,6 @@ node 'hosting1.tomekw.pl' {
     },
   }
   class { '::mysql::server':
-    package_name            => 'MariaDB-server',
-#    package_ensure          => '10.1.14',
-    service_name            => 'mysql',
-    root_password           => 'toor',
-    remove_default_accounts => true,
     override_options        => $override_options
   }
   class { 'docker':
