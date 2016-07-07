@@ -31,3 +31,7 @@ cd /vagrant
 puppet apply --hiera_config=./hiera.yaml --modulepath=./modules ./manifests/site.pp -v --test
 3. Uruchamiamy komendę - puppet w trybie normalnym + verbose:
 puppet apply --hiera_config=./hiera.yaml --modulepath=./modules ./manifests/site.pp -v
+
+
+RPM repo:
+http://download.opensuse.org/repositories/home:/kyvaith:/Adaptive-Cloud/CentOS_7/
