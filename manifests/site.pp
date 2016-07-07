@@ -197,7 +197,7 @@ node 'buildsrv.tomekw.pl' {
   yum::group { 'Development Tools':
     ensure => present,
   }
-  $enhancers = [ "yum-utils", "libevent-devel", "perl-Test-Simple", "cyrus-sasl-devel", "createrepo", "maven" ]
+  $enhancers = [ "yum-utils", "libevent-devel", "perl-Test-Simple", "cyrus-sasl-devel", "createrepo", "maven", "docker" ]
   package { $enhancers: ensure => "installed" }
   exec { 'install_remi_yum_repo':
     command => '/usr/bin/rpm -ihv --replacepkgs http://rpms.famillecollet.com/enterprise/remi-release-7.rpm',
