@@ -94,7 +94,7 @@ sysctl::base::values:
 
 # MySQL settings:
 mysql::server::package_name: 'MariaDB-server'
-mysql::server::package_ensure: '10.1.14'
+mysql::server::package_ensure: '10.1.14-1.el7.centos'
 mysql::server::service_name: 'mysql'
 mysql::server::root_password: 'toor'
 mysql::server::remove_default_accounts: 'true'
