@@ -204,10 +204,6 @@ node 'buildsrv.tomekw.pl' {
   }
   include jenkins
   include jenkins::master
-  jenkins::user { 'root':
-    email    => 'root@tomekw.pl',
-    password => 'toor',
-  }
   jenkins::plugin { 'ant': } ->
   jenkins::plugin { 'antisamy-markup-formatter': } ->
   jenkins::plugin { 'copyartifact': } ->
