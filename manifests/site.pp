@@ -189,13 +189,12 @@ node 'buildsrv.tomekw.pl' {
   yum::group { 'Development Tools':
     ensure => present,
   }
-  $enhancers = [ "yum-utils", "libevent-devel", "perl-Test-Simple", "cyrus-sasl-devel", "createrepo", "maven" ]
-  package { $enhancers: ensure => "installed" }
+  create_resources(package, hiera('rpm_list', {}))
   exec { 'install_remi_yum_repo':
     command => '/usr/bin/rpm -ihv --replacepkgs http://rpms.famillecollet.com/enterprise/remi-release-7.rpm',
   }
-  class { 'docker': } ->
-  class { 'jenkins': } ->
+  class { 'docker': }
+  class { 'jenkins': }
   class { 'jenkins::master': }
   create_resources(jenkins::plugin, hiera('jenkins_plugins', {}))
 }

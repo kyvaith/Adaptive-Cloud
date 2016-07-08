@@ -1,4 +1,19 @@
 ---
+# List packages to install:
+rpm_list:
+  'yum-utils':
+    ensure: 'installed'
+  'libevent-devel':
+    ensure: 'installed'
+  'perl-Test-Simple':
+    ensure: 'installed'
+  'cyrus-sasl-devel':
+    ensure: 'installed'
+  'createrepo':
+    ensure: 'installed'
+  'maven':
+    ensure: 'installed'
+
 # Jenkins configuration
 jenkins::version: '1.651.3-1.1'
 jenkins::plugin::token-macro: 'latest'
