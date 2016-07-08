@@ -1,5 +1,78 @@
 ---
+# Jenkins configuration
 jenkins::version: '1.651.3-1.1'
+jenkins::plugin::token-macro: 'latest'
+jenkins_plugins:
+  'multiple-scms':
+    version: 'latest'
+  'ant':
+    version: 'latest'
+  'antisamy-markup-formatter':
+    version: 'latest'
+  'copyartifact':
+    version: 'latest'
+  'credentials':
+    version: 'latest'
+  'cvs':
+    version: 'latest'
+  'external-monitor-job':
+    version: 'latest'
+  'envinject':
+    version: 'latest'
+  'git':
+    version: 'latest'
+  'git-client':
+    version: 'latest'
+  'icon-shim':
+    version: 'latest'
+  'javadoc':
+    version: 'latest'
+  'jquery':
+    version: 'latest'
+  'junit':
+    version: 'latest'
+  'ldap':
+    version: 'latest'
+  'mailer':
+    version: 'latest'
+  'mapdb-api':
+    version: 'latest'
+  'matrix-auth':
+    version: 'latest'
+  'matrix-project':
+    version: 'latest'
+  'maven-plugin':
+    version: 'latest'
+  'modernstatus':
+    version: 'latest'
+  'nodelabelparameter':
+    version: 'latest'
+  'pam-auth':
+    version: 'latest'
+  'pegdown-formatter':
+    version: 'latest'
+  'scm-api':
+    version: 'latest'
+  'script-security':
+    version: 'latest'
+  'ssh-credentials':
+    version: 'latest'
+  'ssh-slaves':
+    version: 'latest'
+  'subversion':
+    version: 'latest'
+  'token-macro':
+    version: 'latest'
+  'translation':
+    version: 'latest'
+  'windows-slaves':
+    version: 'latest'
+  'ws-cleanup':
+    version: 'latest'
+  'job-dsl':
+    version: 'latest'
+  'structs':
+    version: 'latest'
 
 # Docker settings:
 docker::version: '1.11.2-1.el7.centos'
