@@ -16,3 +16,9 @@ rpmlist:
     ensure: 'installed'
   'epel-release':
     ensure: 'installed'
+
+ntp::autoupdate: true
+ntp::enable: true
+ntp::servers:
+  - 0.pl.pool.ntp.org iburst
+  - 1.pl.pool.ntp.org iburst

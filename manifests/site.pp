@@ -9,9 +9,7 @@ service { "firewalld":
   enable => false,
 }
 
-class { '::ntp':
-  servers => [ '0.pl.pool.ntp.org', '1.pl.pool.ntp.org' ],
-}
+class { '::ntp': }
 
 node 'hosting1.tomekw.pl' {
   kmod::load { 'nf_conntrack_ipv4': }
