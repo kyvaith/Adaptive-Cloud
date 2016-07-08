@@ -1,0 +1,18 @@
+---
+rpmlist:
+  'mc':
+    ensure: 'installed'
+  'zsh':
+    ensure: 'installed'
+  'screen':
+    ensure: 'installed'
+  'bind-utils':
+    ensure: 'installed'
+  'htop':
+    ensure: 'installed'
+  'telnet':
+    ensure: 'installed'
+  'wget':
+    ensure: 'installed'
+  'epel-release':
+    ensure: 'installed'
