@@ -98,9 +98,6 @@ mysql::server::package_ensure: '10.1.14-1.el7.centos'
 mysql::server::service_name: 'mysql'
 mysql::server::root_password: 'toor'
 mysql::server::remove_default_accounts: 'true'
-mysql::server::override_options::mariadb-10.1:
-  innodb_file_format:
-    value: 'OiSiS-Barracuda'
 
 # Docker settings:
 docker::version: '1.11.2-1.el7.centos'
