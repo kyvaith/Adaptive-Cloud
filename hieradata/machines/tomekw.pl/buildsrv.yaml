@@ -1,2 +1,9 @@
 ---
 jenkins::version: '1.651.3-1.1'
+
+# Docker settings:
+docker::version: '1.11.2-1.el7.centos'
+docker::service_state: 'running'
+docker::service_enable: 'true'
+docker::docker_users:
+  - 'vagrant'

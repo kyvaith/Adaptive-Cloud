@@ -182,21 +182,19 @@ node 'hosting1.tomekw.pl' {
   class { '::mysql::server':
     override_options        => $override_options
   }
-  class { 'docker':
-    version       => 'latest',
-    docker_users  => [ 'vagrant', ],
-  }
+  class { 'docker': }
 }
 
 node 'buildsrv.tomekw.pl' {
   yum::group { 'Development Tools':
     ensure => present,
   }
-  $enhancers = [ "yum-utils", "libevent-devel", "perl-Test-Simple", "cyrus-sasl-devel", "createrepo", "maven", "docker" ]
+  $enhancers = [ "yum-utils", "libevent-devel", "perl-Test-Simple", "cyrus-sasl-devel", "createrepo", "maven" ]
   package { $enhancers: ensure => "installed" }
   exec { 'install_remi_yum_repo':
     command => '/usr/bin/rpm -ihv --replacepkgs http://rpms.famillecollet.com/enterprise/remi-release-7.rpm',
   }
+  class { 'docker': }
   include jenkins
   include jenkins::master
   jenkins::plugin { 'ant': } ->
