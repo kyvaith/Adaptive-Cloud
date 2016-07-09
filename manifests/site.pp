@@ -19,8 +19,7 @@ node 'hosting1.tomekw.pl' {
   kmod::load { 'nf_conntrack_ipv6': }
   kmod::load { 'nf_conntrack': }
   include sysctl::base
-  $enhancers = [ "libevent", ]
-  package { $enhancers: ensure => "installed" }
+  create_resources(package, hiera('rpms', {}))
   yumrepo { 'percona':
     descr    => 'CentOS $releasever - Percona',
     baseurl  => 'http://repo.percona.com/centos/$releasever/os/$basearch/',

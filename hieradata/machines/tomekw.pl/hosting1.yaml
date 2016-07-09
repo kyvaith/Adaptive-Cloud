@@ -1,4 +1,8 @@
 ---
+rpms:
+  'libevent':
+    ensure: 'installed'
+
 # Systemctl settings
 sysctl::base::values:
   net.ipv4.ip_forward:
