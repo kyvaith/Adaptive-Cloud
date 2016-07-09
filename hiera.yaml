@@ -1,17 +1,28 @@
 ---
 :backends:
+  - regex
   - yaml
   - eyaml
+
+:regex:
+  :datadir: hieradata
 
 :yaml:
   :datadir: hieradata
 
+:eyaml:
+  :datadir: hieradata
+
+:logger: puppet
+
+:merge_behavior: native
+
 :hierarchy:
-  - machines/%{::domain}/%{::hostname}
-  - users/%{::deploy_environment}
-  - environment/%{::deploy_environment}/profile/%{::service_profile}
-  - environment/%{::deploy_environment}/roles/%{::system_role}
-  - profiles/%{::service_profile}
-  - roles/%{::system_role}
-  - osfamily/%{::osfamily}
-  - common
+  - "machines/%{::domain}/%{::hostname}"
+  - "users/%{::deploy_environment}"
+  - "environment/%{::deploy_environment}/profile/%{::service_profile}"
+  - "environment/%{::deploy_environment}/roles/%{::system_role}"
+  - "profiles/%{::service_profile}"
+  - "roles/%{::system_role}"
+  - "osfamily/%{::osfamily}"
+  - "common"
