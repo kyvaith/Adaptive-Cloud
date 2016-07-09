@@ -97,20 +97,35 @@ sysctl::base::values:
     value: '60'
 
 # MySQL settings:
+# Setup repo:
+yumrepos:
+  'percona':
+    'descr': 'CentOS $releasever - Percona'
+    'baseurl': 'http://repo.percona.com/centos/$releasever/os/$basearch/'
+    'gpgkey': 'http://www.percona.com/downloads/percona-release/RPM-GPG-KEY-percona'
+    'enabled': '0'
+    'gpgcheck': '1'
+  'mariadb':
+    'descr': 'MariaDB'
+    'baseurl': 'http://yum.mariadb.org/10.1/centos7-amd64'
+    'gpgkey': 'https://yum.mariadb.org/RPM-GPG-KEY-MariaDB'
+    'gpgcheck': '1'
+    'enabled': '1'
+    'exclude': 'MariaDB-Galera-server'
+#MySQL server settings:
 mysql::server::package_name: 'MariaDB-server'
 mysql::server::package_ensure: '10.1.14-1.el7.centos'
+mysql::server::config_file: '/etc/my.cnf'
+mysql::server::includedir: '/etc/my.cnf.d'
 mysql::server::service_name: 'mysql'
 mysql::server::root_password: 'toor'
-mysql::server::remove_default_accounts: 'true'
+mysql::server::remove_default_accounts: 'false'
 mysql::server::override_options:
-  client:
-    socket: /var/lib/mysql/mysql.sock'
   mysqld:
     'local-infile': '0'
     'pid-file': '/tmp/mariadb.pid'
     'ignore_db_dirs': 'lost+found'
     'datadir': '/var/lib/mysql'
-    'socket': '/var/lib/mysql/mysql.sock'
     'tmpdir': '/tmp'
     'innodb': 'ON'
     'back_log': '75'
@@ -189,7 +204,6 @@ mysql::server::override_options:
     'innodb_log_block_size': '512'
     'log_slow_filter': 'admin,filesort,filesort_on_disk,full_join,full_scan,query_cache,query_cache_miss,tmp_table,tmp_table_on_disk'
   'mysqld_safe':
-    'socket': '/var/lib/mysql/mysql.sock'
     'log-error': '/var/log/mysqld.log'
     'open-files-limit': '8192'
   'mysqldump':

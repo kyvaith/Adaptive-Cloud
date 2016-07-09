@@ -20,24 +20,8 @@ node 'hosting1.tomekw.pl' {
   kmod::load { 'nf_conntrack': }
   include sysctl::base
   create_resources(package, hiera('rpms', {}))
-  yumrepo { 'percona':
-    descr    => 'CentOS $releasever - Percona',
-    baseurl  => 'http://repo.percona.com/centos/$releasever/os/$basearch/',
-    gpgkey   => 'http://www.percona.com/downloads/percona-release/RPM-GPG-KEY-percona',
-    enabled  => '0',
-    gpgcheck => '1',
-  }
-  yumrepo { 'mariadb':
-    descr    => 'MariaDB',
-    baseurl  => 'http://yum.mariadb.org/10.1/centos7-amd64',
-    gpgkey   => 'https://yum.mariadb.org/RPM-GPG-KEY-MariaDB',
-    gpgcheck => '1',
-    enabled  => '1',
-    exclude  => 'MariaDB-Galera-server',
-  }
-
-  include ::mysql::server
-
+  create_resources(yumrepo, hiera_hash('yumrepos'), {})
+  class { '::mysql::server': }
   class { 'docker': }
 }
 
