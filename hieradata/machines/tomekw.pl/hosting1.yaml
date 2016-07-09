@@ -1,4 +1,5 @@
 ---
+# RPMs list to install
 rpms:
   'libevent':
     ensure: 'installed'
@@ -111,7 +112,7 @@ sysctl::base::values:
   net.netfilter.nf_conntrack_generic_timeout:
     value: '60'
 
-# MySQL settings:
+### MySQL settings:
 # Setup repo:
 yumrepos:
   'percona':

@@ -25,6 +25,7 @@ gemlist:
   'hiera-eyaml':
     provider: 'gem'
 
+# NTPd servre settings
 ntp::package_ensure: 'present'
 ntp::enable: true
 ntp::servers:
