@@ -1,4 +1,5 @@
 ---
+# RPMs list to install on all machines:
 rpmlist:
   'mc':
     ensure: 'installed'
@@ -16,6 +17,13 @@ rpmlist:
     ensure: 'installed'
   'epel-release':
     ensure: 'installed'
+
+# GEMs list to install on all machines:
+gemlist:
+  'hiera-regex':
+    provider: 'gem'
+  'hiera-eyaml':
+    provider: 'gem'
 
 ntp::package_ensure: 'present'
 ntp::enable: true

@@ -2,6 +2,7 @@ stage { 'first': before => Stage['main'] }
 class { 'puppetlabs_yum': stage => first }
 class { 'epel': stage => first }
 
+create_resources(package, hiera('gemlist', {}))
 create_resources(package, hiera('rpmlist', {}))
 
 service { "firewalld":
