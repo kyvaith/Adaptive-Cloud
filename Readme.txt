@@ -35,3 +35,11 @@ puppet apply --hiera_config=./hiera.yaml --modulepath=./modules ./manifests/site
 
 RPM repo:
 http://download.opensuse.org/repositories/home:/kyvaith:/Adaptive-Cloud/CentOS_7/
+
+
+Testowanie hiery:
+hiera -d -c ./hiera.yaml rpmlist enviroment=productio
+-d - debug
+-c - config file
+
+hiera -d -c<HIERA_CONF_FILE> <PUPPET_CLASS> <environment>
