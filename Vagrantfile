@@ -28,6 +28,7 @@ SCRIPT
       puppet.manifest_file = 'site.pp'
       puppet.working_directory = "/vagrant"
       puppet.hiera_config_path = "hiera.yaml"
+#      puppet.options = '--verbose --debug'
       puppet.facter = {
         "fact_test" => "test123"
       }
