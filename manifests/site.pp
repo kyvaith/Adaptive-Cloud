@@ -12,12 +12,7 @@ service { "firewalld":
 class { '::ntp': }
 
 node 'hosting1.tomekw.pl' {
-  kmod::load { 'nf_conntrack_ipv4': }
-  kmod::load { 'nf_defrag_ipv4': }
-  kmod::load { 'xt_conntrack': }
-  kmod::load { 'nf_conntrack_ftp': }
-  kmod::load { 'nf_conntrack_ipv6': }
-  kmod::load { 'nf_conntrack': }
+  create_resources(kmod::load, hiera('kmod_load', {}))
   include sysctl::base
   create_resources(package, hiera('rpms', {}))
   create_resources(yumrepo, hiera_hash('yumrepos'), {})

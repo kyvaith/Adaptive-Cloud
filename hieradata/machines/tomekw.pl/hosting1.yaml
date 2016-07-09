@@ -3,6 +3,21 @@ rpms:
   'libevent':
     ensure: 'installed'
 
+# Load kernel modules:
+kmod_load:
+  'nf_conntrack_ipv4':
+    ensure: 'present'
+  'nf_defrag_ipv4':
+    ensure: 'present'
+  'xt_conntrack':
+    ensure: 'present'
+  'nf_conntrack_ftp':
+    ensure: 'present'
+  'nf_conntrack_ipv6':
+    ensure: 'present'
+  'nf_conntrack':
+    ensure: 'present'
+
 # Systemctl settings
 sysctl::base::values:
   net.ipv4.ip_forward:
