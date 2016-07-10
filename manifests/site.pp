@@ -18,8 +18,8 @@ node 'hosting1.tomekw.pl' {
   create_resources(package, hiera('rpms', {}))
   create_resources(yumrepo, hiera_hash('yumrepos'), {})
   class { '::mysql::server': }
-  class { 'docker': }
-  class { 'docker_compose': }
+  class { '::docker': }
+  class { '::docker_compose': }
 }
 
 node 'buildsrv.tomekw.pl' {
@@ -30,8 +30,8 @@ node 'buildsrv.tomekw.pl' {
   exec { 'install_remi_yum_repo':
     command => '/usr/bin/rpm -ihv --replacepkgs http://rpms.famillecollet.com/enterprise/remi-release-7.rpm',
   }
-  class { 'docker': }
-  class { 'jenkins': }
-  class { 'jenkins::master': }
+  class { '::docker': }
+  class { '::jenkins': }
+  class { '::jenkins::master': }
   create_resources(jenkins::plugin, hiera('jenkins_plugins', {}))
 }
