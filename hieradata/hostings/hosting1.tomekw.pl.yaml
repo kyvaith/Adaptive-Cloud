@@ -1,0 +1,54 @@
+---
+# Config for example1.com hosting
+# MySQL settings:
+mysql::server::users:
+  'example1com@localhost':
+    ensure: 'present'
+    max_connections_per_hour: '0'
+    max_queries_per_hour: '0'
+    max_updates_per_hour: '0'
+    max_user_connections: '0'
+    password_hash: '*F3A2A51A9B0F2BE2468926B4132313728C250DBF'
+mysql::server::grants:
+  'example1com@localhost/example1com.*':
+    ensure: 'present'
+    options: ['GRANT']
+    privileges: ['SELECT', 'INSERT', 'UPDATE', 'DELETE']
+    table: 'example1com.*'
+    user: 'example1com@localhost'
+mysql::server::databases:
+  'example1com':
+    ensure: 'present'
+    charset: 'utf8'
+# Nginx settings:
+
+# Docker settings
+
+###
+
+# Config for example1.com hosting
+# MySQL settings:
+mysql::server::users:
+  'example2com@localhost':
+    ensure: 'present'
+    max_connections_per_hour: '0'
+    max_queries_per_hour: '0'
+    max_updates_per_hour: '0'
+    max_user_connections: '0'
+    password_hash: '*F3A2A51A9B0F2BE2468926B4132313728C250DBF'
+mysql::server::grants:
+  'example2com@localhost/example2com.*':
+    ensure: 'present'
+    options: ['GRANT']
+    privileges: ['SELECT', 'INSERT', 'UPDATE', 'DELETE']
+    table: 'example2com.*'
+    user: 'example2com@localhost'
+mysql::server::databases:
+  'example1com':
+    ensure: 'present'
+    charset: 'utf8'
+# Nginx settings:
+
+# Docker settings
+
+###
