@@ -1,0 +1,33 @@
+{
+  "author": "Gary A. Stafford",
+  "dependencies": [],
+  "license": "Apache-2.0",
+  "name": "garystafford-docker_compose",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "12.04",
+        "15.04"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "6.6",
+        "7"
+      ]
+    }
+  ],
+  "project_page": "https://github.com/garystafford/garystafford-docker_compose",
+  "requirements": [],
+  "source": "https://github.com/garystafford/garystafford-docker_compose",
+  "issues_url": "https://github.com/garystafford/garystafford-docker_compose/issues",
+  "summary": "Downloads and installs Docker Compose",
+  "tags": [
+    "Docker",
+    "Compose",
+    "docker-compose"
+  ],
+  "version": "0.3.0"
+}

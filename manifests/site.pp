@@ -19,6 +19,7 @@ node 'hosting1.tomekw.pl' {
   create_resources(yumrepo, hiera_hash('yumrepos'), {})
   class { '::mysql::server': }
   class { 'docker': }
+  class { 'docker_compose': }
 }
 
 node 'buildsrv.tomekw.pl' {

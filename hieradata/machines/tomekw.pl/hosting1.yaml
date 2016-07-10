@@ -266,3 +266,6 @@ docker::service_state: 'running'
 docker::service_enable: 'true'
 docker::docker_users:
   - 'vagrant'
+
+# Docker-compose settings:
+docker_compose::version: '1.7.1'
