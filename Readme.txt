@@ -43,3 +43,12 @@ hiera -d -c ./hiera.yaml rpmlist enviroment=productio
 -c - config file
 
 hiera -d -c<HIERA_CONF_FILE> <PUPPET_CLASS> <environment>
+
+HTTPS:
+letsencrypt https://community.centminmod.com/threads/welcome-to-acmetool-sh-new-letsencrypt-addon-for-centmin-mod-lemp-stacks.7476/
+https://github.com/hlandau/acme
+
+WordPress CLI:
+https://centminmod.com/addons.html#wpcli
+https://wp-cli.org
+DigitalOcean+WP_CLI: https://www.digitalocean.com/community/tutorials/how-to-use-wp-cli-to-manage-your-wordpress-site-from-the-command-line
