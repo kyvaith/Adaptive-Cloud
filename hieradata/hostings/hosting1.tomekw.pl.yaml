@@ -44,7 +44,7 @@ mysql::server::grants:
     table: 'example2com.*'
     user: 'example2com@localhost'
 mysql::server::databases:
-  'example1com':
+  'example2com':
     ensure: 'present'
     charset: 'utf8'
 # Nginx settings:
