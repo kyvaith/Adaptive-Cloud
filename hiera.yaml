@@ -19,6 +19,7 @@
 
 :hierarchy:
   - "machines/%{::domain}/%{::hostname}"
+  - "hostings/%{::fqdn}"
   - "users/%{::deploy_environment}"
   - "environment/%{::deploy_environment}/profile/%{::service_profile}"
   - "environment/%{::deploy_environment}/roles/%{::system_role}"
