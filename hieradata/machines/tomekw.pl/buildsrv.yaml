@@ -18,76 +18,74 @@ rpm_list:
 jenkins::version: '1.651.3-1.1'
 jenkins::plugin::token-macro: 'latest'
 jenkins_plugins:
-  'multiple-scms':
-    version: 'latest'
   'ant':
-    version: 'latest'
+    version: '1.3'
   'antisamy-markup-formatter':
-    version: 'latest'
+    version: '1.5'
   'copyartifact':
-    version: 'latest'
+    version: '1.38'
   'credentials':
-    version: 'latest'
+    version: '2.1.4'
   'cvs':
-    version: 'latest'
+    version: '2.12'
   'external-monitor-job':
-    version: 'latest'
+    version: '1.4'
   'envinject':
-    version: 'latest'
+    version: '1.92.1'
   'git':
-    version: 'latest'
+    version: '2.5.2'
   'git-client':
-    version: 'latest'
+    version: '1.19.6'
   'icon-shim':
-    version: 'latest'
+    version: '2.0.3'
   'javadoc':
-    version: 'latest'
-  'jquery':
-    version: 'latest'
-  'junit':
-    version: 'latest'
-  'ldap':
-    version: 'latest'
-  'mailer':
-    version: 'latest'
-  'mapdb-api':
-    version: 'latest'
-  'matrix-auth':
-    version: 'latest'
-  'matrix-project':
-    version: 'latest'
-  'maven-plugin':
-    version: 'latest'
-  'modernstatus':
-    version: 'latest'
-  'nodelabelparameter':
-    version: 'latest'
-  'pam-auth':
-    version: 'latest'
-  'pegdown-formatter':
-    version: 'latest'
-  'scm-api':
-    version: 'latest'
-  'script-security':
-    version: 'latest'
-  'ssh-credentials':
-    version: 'latest'
-  'ssh-slaves':
-    version: 'latest'
-  'subversion':
-    version: 'latest'
-  'token-macro':
-    version: 'latest'
-  'translation':
-    version: 'latest'
-  'windows-slaves':
-    version: 'latest'
-  'ws-cleanup':
-    version: 'latest'
+    version: '1.4'
   'job-dsl':
-    version: 'latest'
+    version: '1.48'
+  'jquery':
+    version: '1.11.2-0'
+  'junit':
+    version: '1.14'
+  'ldap':
+    version: '1.12'
+  'mailer':
+    version: '1.17'
+  'mapdb-api':
+    version: '1.0.9.0'
+  'matrix-auth':
+    version: '1.4'
+  'matrix-project':
+    version: '1.7.1'
+  'maven-plugin':
+    version: '2.13'
+  'modernstatus':
+    version: '1.2'
+  'multiple-scms':
+    version: '0.6'
+  'nodelabelparameter':
+    version: '1.7.2'
+  'pam-auth':
+    version: '1.3'
+  'pegdown-formatter':
+    version: '1.3'
+  'scm-api':
+    version: '1.2'
+  'script-security':
+    version: '1.20'
+  'ssh-credentials':
+    version: '1.12'
+  'ssh-slaves':
+    version: '1.11'
   'structs':
-    version: 'latest'
+    version: '1.2'
+  'token-macro':
+    version: '1.12.1'
+  'translation':
+    version: '1.15'
+  'windows-slaves':
+    version: '1.1'
+  'ws-cleanup':
+    version: '0.29'
 
 # Docker settings:
 docker::version: '1.11.2-1.el7.centos'
