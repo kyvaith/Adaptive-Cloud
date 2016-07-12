@@ -31,6 +31,7 @@ node 'buildsrv.tomekw.pl' {
     command => '/usr/bin/rpm -ihv --replacepkgs http://rpms.famillecollet.com/enterprise/remi-release-7.rpm',
   }
   class { '::docker': }
+  class { '::docker_compose': }
   class { '::jenkins': }
   class { '::jenkins::master': }
   create_resources(jenkins::plugin, hiera('jenkins_plugins', {}))
