@@ -43,6 +43,11 @@ SCRIPT
     config.vm.provision "shell", inline: $fill_hosts
     config.vm.network :private_network,ip: "192.168.0.3"
     config.vm.network :forwarded_port, guest: 8080, host: 8080
+    config.vm.network :forwarded_port, guest: 8001, host: 8001
+    config.vm.network :forwarded_port, guest: 8002, host: 8002
+    config.vm.network :forwarded_port, guest: 8003, host: 8003
+    config.vm.network :forwarded_port, guest: 8004, host: 8004
+    config.vm.network :forwarded_port, guest: 8005, host: 8005
     config.vm.provision :puppet do |puppet|
       puppet.module_path = 'modules'
       puppet.manifest_file = 'site.pp'
