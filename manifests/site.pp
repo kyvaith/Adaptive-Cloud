@@ -17,9 +17,15 @@ node 'hosting1.tomekw.pl' {
   include sysctl::base
   create_resources(package, hiera('rpms', {}))
   create_resources(yumrepo, hiera_hash('yumrepos'), {})
-  class { '::mysql::server': }
-  class { '::docker': }
+  class { '::mysql::server': } ->
+  class { '::docker': } ->
   class { '::docker_compose': }
+  mysql::db { 'wpdb':
+    user     => 'wpdb',
+    password => 'wpdb',
+    host     => '%',
+    grant    => ['SELECT', 'INSERT', 'UPDATE', 'DELETE'],
+  }
 }
 
 node 'buildsrv.tomekw.pl' {
