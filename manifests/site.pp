@@ -13,18 +13,26 @@ service { "firewalld":
 class { '::ntp': }
 
 node 'hosting1.tomekw.pl' {
-  create_resources(kmod::load, hiera('kmod_load', {}))
   include sysctl::base
+  include wordpress
+  include mysql::server
+  include docker
+  include docker_compose
+  include wordpress
+  create_resources('kmod::load', hiera('kmod_load', {}))
   create_resources(package, hiera('rpms', {}))
   create_resources(yumrepo, hiera_hash('yumrepos'), {})
-  class { '::mysql::server': } ->
-  class { '::docker': } ->
-  class { '::docker_compose': }
-  mysql::db { 'wpdb':
-    user     => 'wpdb',
-    password => 'wpdb',
-    host     => '%',
-    grant    => ['ALL'],
+  create_resources('mysql::db', hiera_hash('mysqldb'), {})
+  create_resources('wordpress::instance', hiera_hash('wpinstance'), {})
+  Class['::mysql::server'] ->
+  Class['::docker'] ->
+  Class['::docker_compose']
+  exec { 'mkdirs_wordpress':
+    command => '/bin/mkdir -p /home/hostings/example{1,2}.com/{html,extra.conf.d}',
+  }
+  exec { 'chown_dirs':
+    command => '/bin/chown -R nobody:nobody /home/hostings',
+    onlyif  =>  [ '/usr/bin/test -d /home/hostings/' ]
   }
 }
 

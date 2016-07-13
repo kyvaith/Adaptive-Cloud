@@ -1,38 +1,41 @@
 ---
-# Config for example1.com hosting
 # MySQL settings:
-mysql::server::users:
-  'example1com@localhost':
-    ensure: 'present'
-    max_connections_per_hour: '0'
-    max_queries_per_hour: '0'
-    max_updates_per_hour: '0'
-    max_user_connections: '0'
-    password_hash: '*F3A2A51A9B0F2BE2468926B4132313728C250DBF'
-  'example2com@localhost':
-    ensure: 'present'
-    max_connections_per_hour: '0'
-    max_queries_per_hour: '0'
-    max_updates_per_hour: '0'
-    max_user_connections: '0'
-    password_hash: '*F3A2A51A9B0F2BE2468926B4132313728C250DBF'
-mysql::server::grants:
-  'example1com@localhost/example1com.*':
-    ensure: 'present'
-    options: ['GRANT']
-    privileges: ['SELECT', 'INSERT', 'UPDATE', 'DELETE']
-    table: 'example1com.*'
-    user: 'example1com@localhost'
-  'example2com@localhost/example2com.*':
-    ensure: 'present'
-    options: ['GRANT']
-    privileges: ['SELECT', 'INSERT', 'UPDATE', 'DELETE']
-    table: 'example2com.*'
-    user: 'example2com@localhost'
-mysql::server::databases:
-  'example1com':
-    ensure: 'present'
-    charset: 'utf8'
-  'example2com':
-    ensure: 'present'
-    charset: 'utf8'
+mysqldb:
+  'wpdb':
+    user: 'wpdb'
+    password: 'wpdb'
+    host: '%'
+    grant: ['ALL']
+  'wpdb2':
+    user: 'wpdb2'
+    password: 'wpdb2'
+    host: '%'
+    grant: ['ALL']
+# WordPress
+wpinstance:
+  'example1.com':
+    install_dir: '/home/hostings/example1.com/html/'
+    wp_table_prefix: 'j40rqeds_'
+    wp_site_domain: 'example1.pl'
+    version: '4.5.3'
+    wp_owner: 'nobody'
+    wp_group: 'nobody'
+    create_db: false
+    create_db_user: false
+    db_user: 'wpdb'
+    db_name: 'wpdb'
+    db_host: '192.168.0.2'
+    db_password: 'wpdb'
+  'example2.com':
+    install_dir: '/home/hostings/example2.com/html/'
+    wp_table_prefix: 'j40rqeds_'
+    wp_site_domain: 'example2.pl'
+    version: '4.5.3'
+    wp_owner: 'nobody'
+    wp_group: 'nobody'
+    create_db: false
+    create_db_user: false
+    db_user: 'wpdb2'
+    db_name: 'wpdb2'
+    db_host: '192.168.0.2'
+    db_password: 'wpdb2'
