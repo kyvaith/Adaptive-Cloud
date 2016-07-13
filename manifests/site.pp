@@ -24,7 +24,7 @@ node 'hosting1.tomekw.pl' {
     user     => 'wpdb',
     password => 'wpdb',
     host     => '%',
-    grant    => ['SELECT', 'INSERT', 'UPDATE', 'DELETE'],
+    grant    => ['ALL'],
   }
 }
 
