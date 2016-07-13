@@ -138,6 +138,7 @@ mysql::server::root_password: 'toor'
 mysql::server::remove_default_accounts: 'false'
 mysql::server::override_options:
   mysqld:
+    'bind-address': '0.0.0.0'
     'local-infile': '0'
     'pid-file': '/tmp/mariadb.pid'
     'ignore_db_dirs': 'lost+found'
