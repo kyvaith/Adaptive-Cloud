@@ -17,6 +17,8 @@ rpmlist:
     ensure: 'installed'
   'epel-release':
     ensure: 'installed'
+  'git':
+    ensure: 'installed'
 
 # GEMs list to install on all machines:
 gemlist:
