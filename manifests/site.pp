@@ -4,21 +4,17 @@ class { 'epel': stage => first }
 
 create_resources(package, hiera('gemlist', {}))
 create_resources(package, hiera('rpmlist', {}))
-
+class { '::ntp': }
 service { "firewalld":
   ensure => "stopped",
   enable => false,
 }
 
-class { '::ntp': }
-
 node 'hosting1.tomekw.pl' {
   include sysctl::base
-  include wordpress
   include mysql::server
   include docker
   include docker_compose
-  include wordpress
   create_resources('kmod::load', hiera('kmod_load', {}))
   create_resources(package, hiera('rpms', {}))
   create_resources(yumrepo, hiera_hash('yumrepos'), {})
@@ -33,6 +29,21 @@ node 'hosting1.tomekw.pl' {
   exec { 'chown_dirs':
     command => '/bin/chown -R nobody:nobody /home/hostings',
     onlyif  =>  [ '/usr/bin/test -d /home/hostings/' ]
+  }
+  exec { 'clone_docker_repo':
+    command => '/bin/git clone -b beta-0.1 https://github.com/kyvaith/Adaptive-Cloud-Dockerfiles /tmp/Adaptive-Cloud-Dockerfiles',
+    onlyif  =>  [
+      '/usr/bin/test -e /bin/git',
+      '/usr/bin/test ! -d /tmp/Adaptive-Cloud-Dockerfiles'
+    ]
+  }
+  exec { 'run_containers':
+    command => '/usr/local/bin/docker-compose -f /tmp/Adaptive-Cloud-Dockerfiles/docker-composer/nginx-memcached/docker-compose.yml up -d',
+    timeout => 1800,
+    onlyif  =>  [
+      '/usr/bin/test -d /tmp/Adaptive-Cloud-Dockerfiles',
+      '/usr/bin/test -e /usr/local/bin/docker-compose'
+    ]
   }
 }
 
