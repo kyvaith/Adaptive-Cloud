@@ -57,3 +57,34 @@ wpinstance:
     db_name: 'wpdb3'
     db_host: '192.168.0.2'
     db_password: 'wpdb3'
+html_dirs:
+  "/home/hostings/example1.com/html":
+    ensure: 'directory'
+    owner: 'nobody'
+    group: 'nobody'
+    mode: '0755'
+  "/home/hostings/example1.com/extra.conf.d":
+    ensure: 'directory'
+    owner: 'nobody'
+    group: 'nobody'
+    mode: '0755'
+  "/home/hostings/example2.com/html":
+    ensure: 'directory'
+    owner: 'nobody'
+    group: 'nobody'
+    mode: '0755'
+  "/home/hostings/example2.com/extra.conf.d":
+    ensure: 'directory'
+    owner: 'nobody'
+    group: 'nobody'
+    mode: '0755'
+  "/home/hostings/example3.com/html":
+    ensure: 'directory'
+    owner: 'nobody'
+    group: 'nobody'
+    mode: '0755'
+  "/home/hostings/example3.com/extra.conf.d":
+    ensure: 'directory'
+    owner: 'nobody'
+    group: 'nobody'
+    mode: '0755'

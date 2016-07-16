@@ -19,17 +19,11 @@ node 'hosting1.example.com' {
   create_resources(package, hiera('rpms', {}))
   create_resources(yumrepo, hiera_hash('yumrepos'), {})
   create_resources('mysql::db', hiera_hash('mysqldb'), {})
+  create_resources(file, hiera_hash('html_dirs'), {})
   create_resources('wordpress::instance', hiera_hash('wpinstance'), {})
   Class['::mysql::server'] ->
   Class['::docker'] ->
   Class['::docker_compose']
-  exec { 'mkdirs_wordpress':
-    command => '/bin/mkdir -p /home/hostings/example{1,2,3}.com/{html,extra.conf.d}',
-  }
-  exec { 'chown_dirs':
-    command => '/bin/chown -R nobody:nobody /home/hostings',
-    onlyif  =>  [ '/usr/bin/test -d /home/hostings/' ]
-  }
   exec { 'clone_docker_repo':
     command => '/bin/git clone -b beta-0.1 https://github.com/kyvaith/Adaptive-Cloud-Dockerfiles /tmp/Adaptive-Cloud-Dockerfiles',
     onlyif  =>  [
