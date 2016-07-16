@@ -21,6 +21,7 @@ SCRIPT
     config.vm.hostname = "hosting1.example.com"
     config.vm.provision "shell", inline: $fill_hosts
     config.vm.network :private_network,ip: "192.168.0.2"
+    config.vm.network :forwarded_port, guest: 9000, host: 9000
     config.vm.network :forwarded_port, guest: 9001, host: 9001
     config.vm.network :forwarded_port, guest: 9002, host: 9002
     config.vm.network :forwarded_port, guest: 9003, host: 9003
