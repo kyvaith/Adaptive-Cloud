@@ -24,7 +24,7 @@ node 'hosting1.example.com' {
   Class['::docker'] ->
   Class['::docker_compose']
   exec { 'mkdirs_wordpress':
-    command => '/bin/mkdir -p /home/hostings/example{1,2}.com/{html,extra.conf.d}',
+    command => '/bin/mkdir -p /home/hostings/example{1,2,3}.com/{html,extra.conf.d}',
   }
   exec { 'chown_dirs':
     command => '/bin/chown -R nobody:nobody /home/hostings',

@@ -11,6 +11,11 @@ mysqldb:
     password: 'wpdb2'
     host: '%'
     grant: ['ALL']
+  'wpdb3':
+    user: 'wpdb3'
+    password: 'wpdb3'
+    host: '%'
+    grant: ['ALL']
 # WordPress
 wpinstance:
   'example1.com':
@@ -39,3 +44,16 @@ wpinstance:
     db_name: 'wpdb2'
     db_host: '192.168.0.2'
     db_password: 'wpdb2'
+  'example3.com':
+    install_dir: '/home/hostings/example3.com/html/'
+    wp_table_prefix: 'j40r134ds_'
+    wp_site_domain: 'example3.pl'
+    version: '4.5.3'
+    wp_owner: 'nobody'
+    wp_group: 'nobody'
+    create_db: false
+    create_db_user: false
+    db_user: 'wpdb3'
+    db_name: 'wpdb3'
+    db_host: '192.168.0.2'
+    db_password: 'wpdb3'
