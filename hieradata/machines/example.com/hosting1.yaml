@@ -261,12 +261,5 @@ mysql::server::override_options:
     'innodb_defragment_fill_factor': '0.9'
     'innodb_defragment_frequency': '40'
 
-# Docker settings:
-docker::version: '1.11.2-1.el7.centos'
-docker::service_state: 'running'
-docker::service_enable: 'true'
-docker::docker_users:
-  - 'vagrant'
-
 # Docker-compose settings:
 docker_compose::version: '1.7.1'

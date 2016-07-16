@@ -33,3 +33,10 @@ ntp::enable: true
 ntp::servers:
   - 0.pl.pool.ntp.org iburst
   - 1.pl.pool.ntp.org iburst
+
+# Docker settings:
+docker::version: '1.11.2-1.el7.centos'
+docker::service_state: 'running'
+docker::service_enable: 'true'
+docker::docker_users:
+  - 'vagrant'
