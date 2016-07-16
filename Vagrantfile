@@ -26,7 +26,13 @@ SCRIPT
     config.vm.network :forwarded_port, guest: 9003, host: 9003
     config.vm.network :forwarded_port, guest: 9004, host: 9004
     config.vm.network :forwarded_port, guest: 9005, host: 9005
+    config.vm.network :forwarded_port, guest: 9006, host: 9006
+    config.vm.network :forwarded_port, guest: 9007, host: 9007
+    config.vm.network :forwarded_port, guest: 9008, host: 9008
+    config.vm.network :forwarded_port, guest: 9009, host: 9009
+    config.vm.network :forwarded_port, guest: 9010, host: 9010
     config.vm.network :forwarded_port, guest: 9443, host: 9443
+    config.vm.network :forwarded_port, guest: 10443, host: 10443
     config.vm.provision :puppet do |puppet|
       puppet.module_path = 'modules'
       puppet.manifest_file = 'site.pp'
