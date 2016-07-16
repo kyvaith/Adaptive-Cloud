@@ -12,13 +12,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 $fill_hosts = <<SCRIPT
 cat >> /etc/hosts <<EOF
-192.168.0.2 hosting1.tomekw.pl
-192.168.0.3 buildsrv.tomekw.pl
+192.168.0.2 hosting1.example.com
+192.168.0.3 buildsrv.example.com
 EOF
 SCRIPT
 
   config.vm.define "hosting1" do |config|
-    config.vm.hostname = "hosting1.tomekw.pl"
+    config.vm.hostname = "hosting1.example.com"
     config.vm.provision "shell", inline: $fill_hosts
     config.vm.network :private_network,ip: "192.168.0.2"
     config.vm.network :forwarded_port, guest: 9001, host: 9001
@@ -49,7 +49,7 @@ SCRIPT
   end
 
   config.vm.define "buildsrv" do |config|
-    config.vm.hostname = "buildsrv.tomekw.pl"
+    config.vm.hostname = "buildsrv.example.com"
     config.vm.provision "shell", inline: $fill_hosts
     config.vm.network :private_network,ip: "192.168.0.3"
     config.vm.network :forwarded_port, guest: 8080, host: 8080

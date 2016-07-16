@@ -10,7 +10,7 @@ service { "firewalld":
   enable => false,
 }
 
-node 'hosting1.tomekw.pl' {
+node 'hosting1.example.com' {
   include sysctl::base
   include mysql::server
   include docker
@@ -47,7 +47,7 @@ node 'hosting1.tomekw.pl' {
   }
 }
 
-node 'buildsrv.tomekw.pl' {
+node 'buildsrv.example.com' {
   yum::group { 'Development Tools':
     ensure => present,
   }
