@@ -130,7 +130,7 @@ yumrepos:
     'exclude': 'MariaDB-Galera-server'
 #MySQL server settings:
 mysql::server::package_name: 'MariaDB-server'
-mysql::server::package_ensure: '10.1.14-1.el7.centos'
+mysql::server::package_ensure: '10.1.16-1.el7.centos'
 mysql::server::config_file: '/etc/my.cnf'
 mysql::server::includedir: '/etc/my.cnf.d'
 mysql::server::service_name: 'mysql'
