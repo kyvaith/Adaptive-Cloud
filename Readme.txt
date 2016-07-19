@@ -51,3 +51,5 @@ WordPress CLI:
 https://centminmod.com/addons.html#wpcli
 https://wp-cli.org
 DigitalOcean+WP_CLI: https://www.digitalocean.com/community/tutorials/how-to-use-wp-cli-to-manage-your-wordpress-site-from-the-command-line
+
+Puppet + WP-CLI: https://www.digitalocean.com/community/tutorials/how-to-use-puppet-to-manage-wordpress-themes-and-plugins-on-ubuntu-14-04
