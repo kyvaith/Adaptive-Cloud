@@ -15,12 +15,14 @@ node 'hosting1.example.com' {
   include mysql::server
   include docker
   include docker_compose
+  include ssh
   create_resources('kmod::load', hiera('kmod_load', {}))
   create_resources(package, hiera('rpms', {}))
   create_resources(yumrepo, hiera_hash('yumrepos'), {})
   create_resources('mysql::db', hiera_hash('mysqldb'), {})
   create_resources(file, hiera_hash('html_dirs'), {})
   create_resources('wordpress::instance', hiera_hash('wpinstance'), {})
+  Class['::ssh'] ->
   Class['::mysql::server'] ->
   Class['::docker'] ->
   Class['::docker_compose']

@@ -263,3 +263,23 @@ mysql::server::override_options:
 
 # Docker-compose settings:
 docker_compose::version: '1.7.1'
+
+# SSH service settings:
+ssh::sshd_config_port: '22'
+ssh::sshd_config_login_grace_time: '60'
+ssh::ssh_config_forward_x11: 'no'
+ssh::sshd_config_hostkey: '/etc/ssh/ssh_host_rsa_key'
+ssh::sshd_config_serverkeybits: '2048'
+ssh::sshd_config_syslog_facility: 'AUTH'
+ssh::sshd_config_loglevel: 'INFO'
+ssh::permit_root_login: 'no'
+ssh::sshd_config_strictmodes: 'yes'
+ssh::sshd_config_maxauthtries: '3'
+ssh::sshd_pubkeyauthentication: 'yes'
+ssh::sshd_password_authentication: 'yes'
+ssh::sshd_use_pam: 'yes'
+ssh::sshd_x11_forwarding: 'no'
+ssh::sshd_config_print_motd: 'no'
+ssh::sshd_allow_tcp_forwarding: 'no'
+ssh::sshd_config_use_dns: 'no'
+ssh::sshd_config_maxauthtries: '3'
